@@ -1,0 +1,24 @@
+
+source ./SETUP.bash 
+
+git clone https://github.com/davidbwaikato/cbh-ethercalc.git cbhtml-ethercalc
+
+cd cbhtml-ethercalc
+npm i
+
+cd node_modules
+/bin/mv socialcalc socialcalc.orig
+
+git clone https://github.com/davidbwaikato/cbh-socialcalc.git socialcalc
+cd socialcalc
+npm install
+npm run build
+
+cd ../..
+make
+
+#======
+
+cd "$CELL_BLOCK_HTML_HOME"
+
+git clone https://github.com/danny0838/webscrapbook.git cbh-webscrapbook
