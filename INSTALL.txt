@@ -1,24 +1,52 @@
 
-source ./SETUP.bash 
+# Get your envirnment setup for Cell-Block-HTML
+# In addition to commonly installed Unix command-line tools, you will need:
+#  -- NodeJS/npm
+#  -- realpath 
 
-git clone https://github.com/davidbwaikato/cbh-ethercalc.git cbhtml-ethercalc
+  source ./SETUP.bash 
 
-cd cbhtml-ethercalc
-npm i
+# Now check out the cbhtml customized ethercalc spreadsheet server:
 
-cd node_modules
-/bin/mv socialcalc socialcalc.orig
+  git clone https://github.com/davidbwaikato/cbh-ethercalc.git cbhtml-ethercalc
 
-git clone https://github.com/davidbwaikato/cbh-socialcalc.git socialcalc
-cd socialcalc
-npm install
-npm run build
+# And build:
 
-cd ../..
-make
+  cd cbhtml-ethercalc
+  npm i
+
+# Next, within ethercalc install the customized socialcalc component:
+
+  cd node_modules
+  /bin/mv socialcalc socialcalc.orig
+
+  git clone https://github.com/davidbwaikato/cbh-socialcalc.git socialcalc
+  cd socialcalc
+  npm install
+  npm run build
+
+# Return to the top-level cbhtml-ethercalc level:
+  cd ../..
+
+# And general the webpack files and start the server:
+
+  make
 
 #======
 
-cd "$CELL_BLOCK_HTML_HOME"
+# To check out the customized webscrapbook browser add-in 
+# for comprehensive HTML-excerpt copy-and-paste
 
-git clone https://github.com/danny0838/webscrapbook.git cbhtml-webscrapbook
+  cd "$CELL_BLOCK_HTML_HOME"
+
+  git clone https://github.com/danny0838/webscrapbook.git cbhtml-webscrapbook
+  cd cbhtml-webscrapbook
+  bash ./build/pack.sh
+
+# 'dist' now has the .xpi file
+
+To use the XPI file in Firefox, load it through:
+
+config:debugging
+
+
