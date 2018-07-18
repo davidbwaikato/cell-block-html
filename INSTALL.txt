@@ -21,4 +21,4 @@ make
 
 cd "$CELL_BLOCK_HTML_HOME"
 
-git clone https://github.com/danny0838/webscrapbook.git cbh-webscrapbook
+git clone https://github.com/danny0838/webscrapbook.git cbhtml-webscrapbook
