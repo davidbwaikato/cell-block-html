@@ -32,6 +32,24 @@
 
   make
 
+# Or to run within a website that needs a URL prefix, launch in the form:
+
+  make ETHERCALC_ARGS="--basepath /cell-block-html"
+
+# This ultimately runnings:
+#  node app.js --cors --basepath /cell-block-html
+#  Please connect to: http://atea-test02:8000/
+# ...
+#
+
+# The server tries to use Redis as the backing store, but given the
+# minimal setup this INSTALL.txt file describes, no Redis backing store
+# server is running, leading to:
+#  Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+#
+# It then falls back to using local file system storage
+
+
 #======
 
 # To check out the customized webscrapbook browser add-in 
