@@ -6,7 +6,8 @@
 
   source ./SETUP.bash 
 
-# Now check out the cbhtml customized ethercalc spreadsheet server:
+# Now check out the cell-block-html (cbhtml) customized ethercalc
+  spreadsheet server:
 
   git clone https://github.com/davidbwaikato/cbh-ethercalc.git cbhtml-ethercalc
 
@@ -28,7 +29,7 @@
 # Return to the top-level cbhtml-ethercalc level:
   cd ../..
 
-# And general the webpack files and start the server:
+# And generate the webpack files and start the server:
 
   make
 
@@ -63,8 +64,17 @@
 
 # 'dist' now has the .xpi file
 
-To use the XPI file in Firefox, load it through:
+  cp dist/WebScrapbook.xpi  ../cbhtml-ethercalc/static/CBHtml-WebScrapbook.xpi 
+
+To use the XPI file in Firefox, load it locally through:
 
 config:debugging
+
+or if your browser allows installation from a URL, then visit:
+
+  https://<installed-domain>/cell-block-html/
+
+and click on the link provided there to the xpi file.
+
 
 
