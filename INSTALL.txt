@@ -26,6 +26,11 @@
   npm install
   npm run build
 
+# The last line generates a lot of warnings and errors (!!) related to Javascript
+# as best as I have been able to establish these messages are in fact benign,
+# and the files it generates work just fine with the parent project (ethtercalc)
+
+
 # Return to the top-level cbhtml-ethercalc level:
   cd ../..
 
@@ -37,9 +42,9 @@
 
   make ETHERCALC_ARGS="--basepath /cell-block-html"
 
-# This ultimately runnings:
+# This ultimately runs:
 #  node app.js --cors --basepath /cell-block-html
-#  Please connect to: http://atea-test02:8000/
+#  Please connect to: http://<hostname>:8000/
 # ...
 #
 
@@ -49,6 +54,20 @@
 #  Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
 #
 # It then falls back to using local file system storage
+
+
+# Example use of the OCCURS() function to count how many times a substring/regular expression
+# occurs in a text cell:
+
+# In Cell B4 enter:
+
+  Crooked Hillary Clinton blames everybody (and every thing) but herself for her election loss. She lost the debates and lost her direction! Everybody is asking why the Justice Department (and FBI) isn’t looking into all of the dishonesty going on with Crooked Hillary & the Dems.
+  
+# Now in Cell B5 enter:
+
+=occurs("/crooked hillary/gi",G5)
+
+# Result => 2
 
 
 #======
