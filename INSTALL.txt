@@ -6,20 +6,7 @@
 
   source ./SETUP.bash 
 
-# Now check out the cell-block-html (cbhtml) customized ethercalc
-  spreadsheet server:
-
-  git clone https://github.com/davidbwaikato/cbh-ethercalc.git cbhtml-ethercalc
-
-# And build:
-
-  cd cbhtml-ethercalc
-  npm i
-
-# Next, within ethercalc install the customized socialcalc component:
-
-  cd node_modules
-  /bin/mv socialcalc socialcalc.orig
+# First install the customized socialcalc component:
 
   git clone https://github.com/davidbwaikato/cbh-socialcalc.git socialcalc
   cd socialcalc
@@ -30,9 +17,19 @@
 # as best as I have been able to establish these messages are in fact benign,
 # and the files it generates work just fine with the parent project (ethtercalc)
 
+# Return to the root cell-block-html folder:
 
-# Return to the top-level cbhtml-ethercalc level:
-  cd ../..
+  cd .
+
+# Now check out the cell-block-html (cbhtml) customized ethercalc
+  spreadsheet server:
+
+  git clone https://github.com/davidbwaikato/cbh-ethercalc.git cbhtml-ethercalc
+
+# And build:
+
+  cd cbhtml-ethercalc
+  npm i
 
 # And generate the webpack files and start the server:
 
