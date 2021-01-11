@@ -19,7 +19,7 @@
 
 # Return to the root cell-block-html folder:
 
-  cd .
+  cd ..
 
 # Now check out the cell-block-html (cbhtml) customized ethercalc
   spreadsheet server:
