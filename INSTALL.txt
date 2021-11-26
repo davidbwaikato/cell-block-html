@@ -4,7 +4,23 @@
 #  -- NodeJS/npm
 #  -- realpath 
 
+At the time of writing, there is a dependency on Gulp 3.x that prevents
+newer version of NodeJS working with this code base.  The simplest
+thing to do is to work with an older (Gulp 3.x compatible) version of NodeJS
+such as Node v10.24.1.  For example:
+
+  wget "https://nodejs.org/dist/v10.24.1/node-v10.24.1-win-x64.zip"
+  wget "https://nodejs.org/dist/v10.24.1/node-v10.24.1-linux-x64.tar.gz"
+
+For Linux, untar it and rename to 'linux', then:
+
   source ./SETUP.bash 
+
+
+With this done, the sequence of checking out and installing
+cell-block-html is as follows ...
+
+
 
 # First install the customized socialcalc component:
 
