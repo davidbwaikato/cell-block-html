@@ -1,0 +1,26 @@
+#======
+
+# To check out the customized webscrapbook browser add-in 
+# for comprehensive HTML-excerpt copy-and-paste
+
+  cd "$CELL_BLOCK_HTML_HOME"
+
+  git clone https://github.com/danny0838/webscrapbook.git cbhtml-webscrapbook
+  cd cbhtml-webscrapbook
+  bash ./build/pack.sh
+
+# 'dist' now has the .xpi file
+
+  cp dist/WebScrapbook.xpi  ../cbhtml-ethercalc/static/CBHtml-WebScrapbook.xpi 
+
+To use the XPI file in Firefox, load it locally through:
+
+config:debugging
+
+or if your browser allows installation from a URL, then visit:
+
+  https://<installed-domain>/cell-block-html/
+
+and click on the link provided there to the xpi file.
+
+

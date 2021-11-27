@@ -1,112 +1,102 @@
+# Overview
 
-# Get your envirnment setup for Cell-Block-HTML
-# In addition to commonly installed Unix command-line tools, you will need:
-#  -- NodeJS/npm
-#  -- realpath 
+In addition to commonly installed Unix command-line tools, to install
+and operate Cell-Block HTML, you will need:
 
-At the time of writing, there is a dependency on Gulp 3.x that prevents
-newer version of NodeJS working with this code base.  The simplest
-thing to do is to work with an older (Gulp 3.x compatible) version of NodeJS
-such as Node v10.24.1.  For example:
+  - NodeJS/npm
+  - realpath 
 
-  wget "https://nodejs.org/dist/v10.24.1/node-v10.24.1-win-x64.zip"
-  wget "https://nodejs.org/dist/v10.24.1/node-v10.24.1-linux-x64.tar.gz"
+The code has been developed and tested on a range of Ubuntu
+distributions.  No problems anticpated in shifting to other Unix
+distributions.  It has also been run under Windows using Cygwin.
 
-For Linux, untar it and rename to 'linux', then:
+## TLDR:
 
-  source ./SETUP.bash 
+Run the appropriate INSTAL-<OS>.sh in 'packages' to add a version of
+NodeJS that is known to work with the EtherCalc code base.  For
+exmaple:
 
+    cd packages
+    ./INSTALL-LINUX.sh
+    cd ..
 
-With this done, the sequence of checking out and installing
-cell-block-html is as follows ...
-
-
-
-# First install the customized socialcalc component:
-
-  git clone https://github.com/davidbwaikato/cbh-socialcalc.git socialcalc
-  cd socialcalc
-  npm install
-  npm run build
-
-# The last line generates a lot of warnings and errors (!!) related to Javascript
-# as best as I have been able to establish these messages are in fact benign,
-# and the files it generates work just fine with the parent project (ethtercalc)
-
-# Return to the root cell-block-html folder:
-
-  cd ..
-
-# Now check out the cell-block-html (cbhtml) customized ethercalc
-  spreadsheet server:
-
-  git clone https://github.com/davidbwaikato/cbh-ethercalc.git cbhtml-ethercalc
-
-# And build:
-
-  cd cbhtml-ethercalc
-  npm i
-
-# And generate the webpack files and start the server:
-
-  make
-
-# Or to run within a website that needs a URL prefix, launch in the form:
-
-  make ETHERCALC_ARGS="--basepath /cell-block-html"
-
-# This ultimately runs:
-#  node app.js --cors --basepath /cell-block-html
-#  Please connect to: http://<hostname>:8000/
-# ...
-#
-
-# The server tries to use Redis as the backing store, but given the
-# minimal setup this INSTALL.txt file describes, no Redis backing store
-# server is running, leading to:
-#  Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
-#
-# It then falls back to using local file system storage
-
-
-# Example use of the OCCURS() function to count how many times a substring/regular expression
-# occurs in a text cell:
-
-# In Cell B4 enter:
-
-  Crooked Hillary Clinton blames everybody (and every thing) but herself for her election loss. She lost the debates and lost her direction! Everybody is asking why the Justice Department (and FBI) isn’t looking into all of the dishonesty going on with Crooked Hillary & the Dems.
+Next, in the top-level directory:
   
-# Now in Cell B5 enter:
+    source ./SETUP.bash
 
-=occurs("/crooked hillary/gi",G5)
+Finally, skip to the Code Checkout section of this INSTALL.txt
 
-# Result => 2
+## Additional Detail
+
+At the time of writing, the code-base to ethercalc has a dependency on
+Gulp 3.x that prevents newer version of NodeJS/npm from working
+properly.  For now, the simplest thing to do is to work with an older
+version of NodeJS/npm that is compatible with Gulp 3.x, such as
+version 11.15.0.
+
+Included here in the 'packages' directory are binary releases of this
+very version.  In the relevant packages directory, run the relevant
+'INSTALL-<OS>.sh' script.
+
+Having done this, 'cd' back up to the top-level diretory, and source
+the SETUP.bash file:
+
+    cd ..
 
 
-#======
+    source ./SETUP.bash
 
-# To check out the customized webscrapbook browser add-in 
-# for comprehensive HTML-excerpt copy-and-paste
+# Code Checkout
 
-  cd "$CELL_BLOCK_HTML_HOME"
 
-  git clone https://github.com/danny0838/webscrapbook.git cbhtml-webscrapbook
-  cd cbhtml-webscrapbook
-  bash ./build/pack.sh
+First install the customized socialcalc component:
 
-# 'dist' now has the .xpi file
+    git clone https://github.com/davidbwaikato/cbh-socialcalc.git socialcalc
+    cd socialcalc
+    npm install
+    npm run build
 
-  cp dist/WebScrapbook.xpi  ../cbhtml-ethercalc/static/CBHtml-WebScrapbook.xpi 
+The last line generates a lot of warnings and errors (!!) related to
+Javascript as best as I have been able to establish these messages are
+in fact benign, and the files it generates work just fine with the
+parent project (ethtercalc)
 
-To use the XPI file in Firefox, load it locally through:
+Return to the root cell-block-html folder:
 
-config:debugging
+    cd ..
 
-or if your browser allows installation from a URL, then visit:
+Now check out the cell-block-html (cbhtml) customized ethercalc
+spreadsheet server:
 
-  https://<installed-domain>/cell-block-html/
+    git clone https://github.com/davidbwaikato/cbh-ethercalc.git cbhtml-ethercalc
 
-and click on the link provided there to the xpi file.
+And build:
 
+    cd cbhtml-ethercalc
+    npm install
+
+To generate the webpack files and start the server:
+
+    make
+
+Or to run within a website that needs a URL prefix, launch in the form:
+
+    make ETHERCALC_ARGS="--basepath /cell-block-html"
+
+This ultimately runs:
+    node app.js --cors --basepath /cell-block-html
+    Please connect to: http://<hostname>:8000/
+    ...
+
+
+# Notes
+
+The server tries to use Redis as the backing store, but given the
+minimal setup this INSTALL.txt file describes, no Redis backing store
+server is running, leading to:
+
+    Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+    
+It then falls back to using local file system storage
 
 
