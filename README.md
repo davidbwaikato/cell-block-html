@@ -10,7 +10,7 @@ Then you git clone our fork of the'ethercalc' project.
 In building this forked version, it overwrites the standard
 socialcalc sub-package in node_modules with our custom version.
 
-See [INSTALL.md] for further details on how to get things
+See [INSTALL.md](./INSTALL.md) for further details on how to get things
 setup and running.
 
 ## Usage of Extended Capabilities
