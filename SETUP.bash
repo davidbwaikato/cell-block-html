@@ -1,11 +1,8 @@
 
 export CELL_BLOCK_HTML_HOME=`pwd`
 
-echo
-echo "Checking for 'node'"
-which node 2>/dev/null
 
-if [ $? != 0 ] ; then
+if [ -d 'linux' ] ; then
     # Failed to find
     if [ -f "$CELL_BLOCK_HTML_HOME/linux/bin/node" ] ; then
 	export PATH="$CELL_BLOCK_HTML_HOME/linux/bin:$PATH"
@@ -20,11 +17,25 @@ if [ $? != 0 ] ; then
 	fi
     fi
 else
-    echo
-#    echo "Suggested minimum version of 'node' for Cell Block HTML: v?.?.?"
-    nodejs_version=`node -v `
-    echo "Version of detected 'node': $nodejs_version"
-    echo
+
+    echo ""
+    echo "Checking for system installed 'node'"
+    which node 2>&1 >/dev/null
+
+    echo ""
+    if [ $? == 0 ] ; then
+
+	echo "Detected 'node' on the file-system:"
+	echo "  `which node`"
+
+	echo ""
+	nodejs_version=`node -v `
+	echo "Detected version of 'node':"
+	echo "  $nodejs_version"
+    fi
+    echo "Suggested version of 'node' for Cell Block HTML:"
+    echo "  v11.15.0"
+    echo ""
 fi
 
 
