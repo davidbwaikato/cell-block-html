@@ -6,7 +6,9 @@ if [ -d 'linux' ] ; then
     # Failed to find
     if [ -f "$CELL_BLOCK_HTML_HOME/linux/bin/node" ] ; then
 	export PATH="$CELL_BLOCK_HTML_HOME/linux/bin:$PATH"
-	echo "Added CELL_BLOCK_HTML_HOME/linux/bin NodeJS into PATH"
+	echo ""
+	echo "+ Added CELL_BLOCK_HTML_HOME/linux/bin NodeJS into PATH"
+	echo ""
     else
 	if [ -d "/opt/nodejs/bin" ] ; then
 	    export PATH=/opt/nodejs/bin/:$PATH
