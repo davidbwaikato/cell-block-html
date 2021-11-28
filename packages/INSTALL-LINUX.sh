@@ -20,3 +20,9 @@ echo "Copying:"
 echo   "node-v11.15.0-linux-x64/{bin,include,lib,share} => ../linux"
 
 /bin/cp -r node-v11.15.0-linux-x64/{bin,include,lib,share} ../linux/.
+
+echo ""
+echo "To prepare your command-line environment to run NodeJS v11.15.0:"
+echo "  cd .."
+echo "  source ./SETUP.bash"
+echo ""
