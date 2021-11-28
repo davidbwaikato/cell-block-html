@@ -42,8 +42,6 @@ Having done this, 'cd' back up to the top-level diretory, and source
 the SETUP.bash file:
 
     cd ..
-
-
     source ./SETUP.bash
 
 # Code Checkout
