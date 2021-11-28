@@ -9,7 +9,7 @@ text analytics.
 As this project makes used of submodules, the recommended way to
 clone/checkout it out is with:
 
-    git clone --recursive <project url>
+    git clone --recursive https://github.com/davidbwaikato/cell-block-html.git
 
 Failing that, having checked out this top-level project, to get
 the submodules, you can then run:
