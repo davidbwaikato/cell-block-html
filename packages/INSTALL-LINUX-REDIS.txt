@@ -1,0 +1,21 @@
+
+To compile up Redis from source, do the following:
+
+
+    tar xvzf redis-6.2.6.tar.gz
+    cd redis-6.2.6
+    make
+    cd ..
+
+This creates executables in the 'src' directory.
+
+In the home directory to Cell-Block-HTML there is:
+
+
+  ./RUN-REDIS-SERVER.sh
+
+
+which runs the executable in the 'src' directory.
+
+
+ 
