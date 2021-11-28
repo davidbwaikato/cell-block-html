@@ -6,9 +6,21 @@ and operate Cell-Block HTML, you will need:
   - NodeJS/npm
   - realpath 
 
-The code has been developed and tested on a range of Ubuntu
-distributions.  No problems anticpated in shifting to other Unix
+Optional:
+  - Redis
+  
+The code has been developed and tested using a variety of Linux
 distributions.  It has also been run under Windows using Cygwin.
+
+As a convenience, tarballs of supporting tools not typically shipped
+as standard with Unix system are located in the 'packages' directory
+for convenience.  These allow for installation without admin rights.
+
+NodeJS is the most important of these, as it is matched to be a
+version known to work with the EtherCalc/SocialCalc code bases.  The
+'coreutils' tarball provides 'realpath'.  The Redis tarball is there
+if you want to increase performance through its in-memory caching
+server capability.
 
 ## TLDR:
 
