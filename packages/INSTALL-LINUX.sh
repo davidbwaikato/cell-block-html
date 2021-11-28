@@ -1,7 +1,12 @@
 #!/bin/bash
 
-if [ ! -d node-v11.15.0-linux-x64 ] ; then
-    tar xvf node-v11.15.0-linux-x64.tar.xz
+version=11.15.0
+platform=linux-x64
+
+version_platform=-v$version-$platform
+
+if [ ! -d node$version_platform ] ; then
+    tar xvf node$version_platform.tar.xz
 fi
 
 if [ ! -d ../linux ] ; then
@@ -10,19 +15,20 @@ if [ ! -d ../linux ] ; then
     mkdir ../linux
 fi
 
-#if [ ! -d ../linux/bin ] ; then
-#    echo "Making directory:"
-#    echo "  ../linux/bin"
-#    mkdir ../linux/bin
-#fi
-
+echo ""
 echo "Copying:"
-echo   "node-v11.15.0-linux-x64/{bin,include,lib,share} => ../linux"
+echo "  node$version_platform/{bin,include,lib,share} => ../linux"
 
-/bin/cp -r node-v11.15.0-linux-x64/{bin,include,lib,share} ../linux/.
+/bin/cp -rf node$version_platform/{bin,include,lib,share} ../linux/.
 
 echo ""
-echo "To prepare your command-line environment to run NodeJS v11.15.0:"
+echo "Cleaning up untarred files:"
+echo "  node$version_platform"
+
+/bin/rm -rf node$version_platform
+
+echo ""
+echo "To prepare your command-line environment to run NodeJS v$version:"
 echo "  cd .."
 echo "  source ./SETUP.bash"
 echo ""
