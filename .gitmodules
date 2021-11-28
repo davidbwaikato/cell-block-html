@@ -1,0 +1,6 @@
+[submodule "cbhtml-socialcalc"]
+	path = cbhtml-socialcalc
+	url = https://github.com/davidbwaikato/cbh-socialcalc.git
+[submodule "cbhtml-ethercalc"]
+	path = cbhtml-ethercalc
+	url = https://github.com/davidbwaikato/cbh-ethercalc.git
