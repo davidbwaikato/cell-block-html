@@ -48,7 +48,7 @@ version 11.15.0.
 
 Included here in the 'packages' directory are binary releases of this
 very version.  In the relevant packages directory, run the relevant
-'INSTALL-<OS>.sh' script.
+'INSTALL-<OS>-NODEJS.sh' script.
 
 Having done this, 'cd' back up to the top-level diretory, and source
 the SETUP.bash file:
@@ -61,7 +61,6 @@ the SETUP.bash file:
 
 First install the customized socialcalc component:
 
-    git clone https://github.com/davidbwaikato/cbh-socialcalc.git socialcalc
     cd socialcalc
     npm install
     npm run build
@@ -74,11 +73,6 @@ parent project (ethtercalc)
 Return to the root cell-block-html folder:
 
     cd ..
-
-Now check out the cell-block-html (cbhtml) customized ethercalc
-spreadsheet server:
-
-    git clone https://github.com/davidbwaikato/cbh-ethercalc.git cbhtml-ethercalc
 
 And build:
 
