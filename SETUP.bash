@@ -1,22 +1,26 @@
 
 export CELL_BLOCK_HTML_HOME=`pwd`
 
+cygpath --version >/dev/null 2>&1
 
-if [ -d 'linux' ] ; then
-    # Failed to find
-    if [ -f "$CELL_BLOCK_HTML_HOME/linux/bin/node" ] ; then
-	export PATH="$CELL_BLOCK_HTML_HOME/linux/bin:$PATH"
+if [ $? = 0 ] ; then
+    # Running on Cygwin
+    export CELL_BLOCK_HTML_OS=windows
+else
+    export CELL_BLOCK_HTML_OS=linux
+fi
+
+
+if [ -d $CELL_BLOCK_HTML_OS ] ; then
+    if [ -f "$CELL_BLOCK_HTML_HOME/$CELL_BLOCK_HTML_OS/bin/node" ] \
+       || [-f "$CELL_BLOCK_HTML_HOME/$CELL_BLOCK_HTML_OS/bin/node.exe" ] ; then
+	export PATH="$CELL_BLOCK_HTML_HOME/$CELL_BLOCK_HTML_OS/bin:$PATH"
 	echo ""
-	echo "+ Added CELL_BLOCK_HTML_HOME/linux/bin NodeJS into PATH"
+	echo "+ Added <CELL_BLOCK_HTML_HOME>/$CELL_BLOCK_HTML_OS/bin NodeJS into PATH"
 	echo ""
     else
-	if [ -d "/opt/nodejs/bin" ] ; then
-	    export PATH=/opt/nodejs/bin/:$PATH
-	    echo "Added system-installed NodeJS into PATH"
-	else	  
-	    echo "Failed to find" 1>&2
-	    return
-	fi
+	echo "Found: <CELL_BLOCK_HTML_HOME>/$CELL_BLOCK_HTML_OS" 1>&2
+	echo "But failed to find: <CELL_BLOCK_HTML_HOME>/$CELL_BLOCK_HTML_OS/bin/node" 1>&2
     fi
 else
 
