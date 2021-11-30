@@ -2,4 +2,4 @@
 
 
 cd cbhtml-ethercalc \
- && node app.js --cors --basepath /cell-block-html
+ && node app.js --cors --basepath /cell-block-html/
